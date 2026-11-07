@@ -1,0 +1,100 @@
+@layer reset, mui;
+
+@layer reset {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+html {
+  color-scheme: dark light;
+  scroll-behavior: smooth;
+}
+
+:root {
+}
+
+body {
+  min-height: 100%;
+  min-width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /*background: rgb(251, 96, 157);*/
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease;
+  background-size: 100% 100vh; /* start matching viewport height */
+}
+
+html, body {
+  margin: 0; /* Remove default browser margins */
+  min-height: 100vh; /* Needed for browser support. */
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column; /* Ensure children (like main) stack vertically */
+  justify-content: space-between;
+}
+
+body {
+  flex: 1; /* Allow it to grow within html */
+}
+
+main {
+  flex: 1; /* Allow it to grow within body */
+  display: flex; /* Make it a flex container */
+  height: 100%; /* Ensure it stretches to fill body */
+  flex-direction: column; /* Stack children vertically */
+
+  padding: 3rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Dashed border */
+hr.dashed {
+  border-top: 3px dashed #bbb;
+}
+
+/* Dotted border */
+hr.dotted {
+  border-top: 3px dotted #bbb;
+
+}
+
+/* Solid border */
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+/* Rounded border */
+hr.rounded {
+  border-top: 8px solid #bbb;
+  border-radius: 5px;
+}
+
+hr {
+  width: 85%;
+}
