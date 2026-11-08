@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/beanbeanjuice/CoffeeChat/compare/coffee-chat-v0.2.0...coffee-chat-v0.3.0) (2026-11-08)
+
+
+### Features
+
+* [GH-0012] Free Option On Calendar ([#15](https://github.com/beanbeanjuice/CoffeeChat/issues/15)) ([e2af0cb](https://github.com/beanbeanjuice/CoffeeChat/commit/e2af0cbd5771de7b33368b42a5c5d6a7d8261b0b))
+
+
+### Bug Fixes
+
+* [GH-0011] Fix Docker Compose ([#13](https://github.com/beanbeanjuice/CoffeeChat/issues/13)) ([96ca207](https://github.com/beanbeanjuice/CoffeeChat/commit/96ca207f82118da63b6152de455e9dffd9850279))
+* **deps:** bump react-dom from 19.3.0 to 19.3.1 ([#16](https://github.com/beanbeanjuice/CoffeeChat/issues/16)) ([2c15ca4](https://github.com/beanbeanjuice/CoffeeChat/commit/2c15ca4ecc1252e7cddbb1375a8504d91cb670eb))
+
 ## [0.2.0](https://github.com/beanbeanjuice/CoffeeChat/compare/coffee-chat-v0.1.0...coffee-chat-v0.2.0) (2026-11-08)
 
 
