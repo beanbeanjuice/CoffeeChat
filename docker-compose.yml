@@ -1,8 +1,6 @@
 services:
   coffeechat:
-    build:
-      context: https://github.com/beanbeanjuice/CoffeeChat.git#master
-      dockerfile: Dockerfile
+    image: beanbeanjuice/coffeechat:latest
     restart: unless-stopped
     ports:
       - "3000:3000"
