@@ -1,0 +1,106 @@
+name: Test PR
+
+on: [ pull_request ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pnpm-lint:
+    runs-on: ubuntu-latest
+    name: Node Lint
+    steps:
+      -
+        name: Checkout Code
+        uses: actions/checkout@v6
+      -
+        name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      -
+        name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'latest'
+          cache: pnpm
+      -
+        name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      -
+        name: Lint Website
+        run: pnpm lint
+
+  pnpm-peer-check:
+    if: ${{ startsWith(github.head_ref, 'dependabot/') }}
+    runs-on: ubuntu-latest
+    name: Node Peer Dependency Check
+    steps:
+      -
+        name: Checkout Code
+        uses: actions/checkout@v6
+      -
+        name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      -
+        name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'latest'
+          cache: pnpm
+      -
+        name: Check for Peer Dependency Conflicts
+        run: pnpm install --frozen-lockfile
+
+  pnpm-build:
+    if: ${{ startsWith(github.head_ref, 'dependabot/') }}
+    runs-on: ubuntu-latest
+    name: Node Build
+    steps:
+      -
+        name: Checkout Code
+        uses: actions/checkout@v6
+      -
+        name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      -
+        name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'latest'
+          cache: pnpm
+      -
+        name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      -
+        name: Build Website
+        run: pnpm build
+        env:
+          CALENDAR_ICS_LINK: http://placeholder
+
+  docker-release:
+    if: ${{ !startsWith(github.head_ref, 'dependabot/') }}
+    name: Docker PR Release
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      -
+        name: Checkout Repository
+        uses: actions/checkout@v6
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build and Push to Docker Hub
+        uses: docker/build-push-action@v7
+        with:
+          push: true
+          tags: |
+            beanbeanjuice/coffeechat:unstable
+            beanbeanjuice/coffeechat:pr-${{ github.event.pull_request.number }}
+          provenance: true
+          sbom: true
