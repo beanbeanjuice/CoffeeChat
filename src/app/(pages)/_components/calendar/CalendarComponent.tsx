@@ -28,7 +28,13 @@ const CalendarComponent = (props: CalendarComponentProps) => {
             colorScheme="dark"
             plugins={[themePlugin, dayGridPlugin, timeGridPlugin, listPlugin]}
             initialView="timeGridWeek"
-            headerToolbar={{ left: "prev,next today", center: "title", right: "dayGridMonth,timeGridWeek,listWeek" }}
+            headerToolbar={{ left: "prev,next today", center: "title", right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek" }}
+            views={{
+                timeGridWeek: {
+                    titleFormat: { month: "short", day: "numeric", year: "numeric" }, // "Nov 8 – 14, 2026"
+                    dayHeaderFormat: { weekday: "short", day: "numeric" },           // "S 8", "M 9", …
+                },
+            }}
             events={props.events}
             height="auto"
             nowIndicator

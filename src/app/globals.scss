@@ -59,8 +59,6 @@ main {
   display: flex; /* Make it a flex container */
   height: 100%; /* Ensure it stretches to fill body */
   flex-direction: column; /* Stack children vertically */
-
-  padding: 3rem;
 }
 
 code {
