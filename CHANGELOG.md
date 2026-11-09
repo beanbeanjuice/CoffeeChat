@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/beanbeanjuice/CoffeeChat/compare/coffee-chat-v0.3.0...coffee-chat-v0.3.1) (2026-11-09)
+
+
+### Bug Fixes
+
+* [GH-0017] Fix Mobile ([#18](https://github.com/beanbeanjuice/CoffeeChat/issues/18)) ([0c6d9ca](https://github.com/beanbeanjuice/CoffeeChat/commit/0c6d9cae185175cc568556234d0be961cc5b02dd))
+
 ## [0.3.0](https://github.com/beanbeanjuice/CoffeeChat/compare/coffee-chat-v0.2.0...coffee-chat-v0.3.0) (2026-11-08)
 
 
