@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/beanbeanjuice/CoffeeChat/compare/coffee-chat-v0.3.1...coffee-chat-v0.4.0) (2026-11-12)
+
+
+### Features
+
+* [GH-0020] Show Notes When Public ([#21](https://github.com/beanbeanjuice/CoffeeChat/issues/21)) ([79742e7](https://github.com/beanbeanjuice/CoffeeChat/commit/79742e79bdd6cf1895ae092df1bdf82b50ff9018))
+
 ## [0.3.1](https://github.com/beanbeanjuice/CoffeeChat/compare/coffee-chat-v0.3.0...coffee-chat-v0.3.1) (2026-11-09)
 
 
