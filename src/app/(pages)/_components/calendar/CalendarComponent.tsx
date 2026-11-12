@@ -1,5 +1,7 @@
 'use client';
 
+import styles from "./CalendarComponent.module.scss";
+
 import {Calendar} from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/react/daygrid";
 import timeGridPlugin from "@fullcalendar/react/timegrid";
@@ -38,6 +40,19 @@ const CalendarComponent = (props: CalendarComponentProps) => {
             events={props.events}
             height="auto"
             nowIndicator
+            eventClass={(arg) => (arg.event.extendedProps.tentative ? styles.Tentative : undefined)}
+            eventContent={(arg) => (
+                <div className={styles.Event}>
+                    {arg.view.type.startsWith("timeGrid") && arg.timeText && <div className={styles.Time}>{arg.timeText}</div>}
+                    <div className={styles.Title}>
+                        {arg.event.title}
+                        {arg.event.extendedProps.tentative && arg.event.title !== "Tentative" && " (Tentative)"}
+                    </div>
+                    {arg.view.type !== "dayGridMonth" && arg.event.extendedProps.description && (
+                        <div className={styles.Description}>{arg.event.extendedProps.description}</div>
+                    )}
+                </div>
+            )}
         />
     );
 }
