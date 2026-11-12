@@ -1,0 +1,42 @@
+.Tentative {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.Tentative .Title {
+  font-style: italic;
+}
+
+.Event {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.Time,
+.Title {
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Time {
+  font-size: 0.75em;
+  opacity: 0.85;
+}
+
+.Title {
+  font-weight: 600;
+}
+
+.Description {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  white-space: pre-line;
+  font-size: 0.85em;
+  opacity: 0.85;
+}
